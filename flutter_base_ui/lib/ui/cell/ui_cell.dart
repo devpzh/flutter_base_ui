@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
 import 'dart:math';
-import 'package:drama_app/ui/const/ui.dart';
+import 'package:flutter_base_ui/ui/const/ui.dart';
 import 'package:flutter/material.dart';
 
 class UICellModel {
@@ -69,7 +69,6 @@ class UICell extends StatefulWidget {
   State<StatefulWidget> createState() {
     return UICellState();
   }
-
 }
 
 class UICellState extends State<UICell> {
