@@ -14,7 +14,7 @@ class ui {
     return instance;
   }
   ui._instance();
-  Icon? backIcon;
+  Image? backIcon;
   var tintColor = Colors.blue;
   var backgroundColor = Colors.white;
   var naviBarBackgroundColor = Colors.white;

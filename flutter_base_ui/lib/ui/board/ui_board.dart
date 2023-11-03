@@ -50,7 +50,8 @@ class UIBoard extends StatefulWidget {
   Widget? _onCreateBarLeftItem() {
     final left = onCreateBarLeft();
     if (left == null) {
-      return null;
+      leadingWidth = 0;
+      return Container();
     }
     return InkWell(
       onTap: onLeftTouch,
