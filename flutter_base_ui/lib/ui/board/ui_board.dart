@@ -10,14 +10,15 @@ class UIBoard extends StatefulWidget {
   UIBoardState? state;
 
   var backgroundColor = ui.instance.backgroundColor;
+  var title = "";
   var isDisplayAppBar = true;
   var naviBarBackgroundColor = ui.instance.naviBarBackgroundColor;
-  var title = "";
   var naviBarTitleStyle = ui.instance.naviBarTitleStyle;
   var tintColor = ui.instance.tintColor;
-  double leadingWidth = Screen.width / 3;
-  double naviBarLeftPadding = 20;
-  double naviBarRightPadding = 15;
+  var elevation = ui.instance.naviBarElevation;
+  double leadingWidth = ui.instance.leadingWidth;
+  double naviBarLeftPadding = ui.instance.naviBarLeftPadding;
+  double naviBarRightPadding = ui.instance.naviBarRightPadding;
 
   onCreate() {}
   onStateCreate() {}
@@ -28,7 +29,7 @@ class UIBoard extends StatefulWidget {
   PreferredSizeWidget? onCreateAppBar() {
     if (isDisplayAppBar == false) return null;
     final appBar = AppBar(
-      elevation: 2,
+      elevation: elevation,
       backgroundColor: naviBarBackgroundColor,
       leading: _onCreateBarLeftItem(),
       leadingWidth: leadingWidth,
