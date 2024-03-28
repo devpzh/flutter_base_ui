@@ -43,8 +43,11 @@ class UIListView extends StatefulWidget {
     // ignore: prefer_initializing_formals
     this.didScrollClosure = didScrollClosure;
     this.sections = sections ?? [];
+    // ignore: prefer_initializing_formals
     this.refreshController = refreshController;
+    // ignore: prefer_initializing_formals
     this.onRefresh = onRefresh;
+    // ignore: prefer_initializing_formals
     this.onLoading = onLoading;
   }
 
@@ -190,10 +193,8 @@ class UIListViewState extends State<UIListView> {
         model.index = index;
         model.sec = i;
         model.row = j;
-
         final double extra =
             isVerticalDirectionFlag ? model.cellHeight : model.cellWidth;
-
         offsety += extra;
         index += 1;
         dataSource.add(model);

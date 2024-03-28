@@ -8,6 +8,7 @@ typedef BoolClosure = Function(bool?);
 typedef IntClosure = Function(int?);
 typedef AnyClosure<T> = Function(T?);
 
+// ignore: camel_case_types
 class ui {
   static final ui instance = ui._instance();
   factory ui() {
@@ -19,8 +20,8 @@ class ui {
   var backgroundColor = Colors.white;
   var naviBarBackgroundColor = Colors.white;
   var bottomBarColor = Colors.white;
-  var naviBarTitleStyle =
-      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
+  var naviBarTitleStyle = const TextStyle(
+      color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
   var naviBarElevation = 0.0;
   var leadingWidth = 44.0;
   var naviBarLeftPadding = 20.0;

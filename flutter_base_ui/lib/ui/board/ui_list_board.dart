@@ -4,7 +4,7 @@ import 'package:flutter_base_ui/ui/view/ui_list_view.dart';
 
 // ignore: must_be_immutable
 class UIListBoard extends UIBoard {
-  ScrollPhysics physics = AlwaysScrollableScrollPhysics();
+  ScrollPhysics physics = const AlwaysScrollableScrollPhysics();
   EdgeInsets? edgeInsets;
   Axis scrollDirection = Axis.vertical;
   bool? needScrollerListener;
@@ -12,7 +12,7 @@ class UIListBoard extends UIBoard {
   var sections = <UIListSection>[];
   Color? listViewBackroundColor;
   UIListView? listView;
-  UIListBoard() {
+  UIListBoard({Key? key}) : super(key: key) {
     sections.add(section);
   }
 

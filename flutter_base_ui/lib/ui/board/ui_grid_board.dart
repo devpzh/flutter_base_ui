@@ -13,9 +13,8 @@ class UIGridBoard extends UIBoard {
   double crossAxisSpacing = 5;
   double aspectRatio = 1;
   var rows = <UICellModel>[];
-
+  UIGridBoard({Key? key}) : super(key: key);
   onDidScroll(double offset) {}
-
   @override
   reload() {
     if (gridView?.scrollDirection != scrollDirection) {

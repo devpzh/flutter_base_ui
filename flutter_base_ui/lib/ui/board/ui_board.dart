@@ -8,7 +8,6 @@ class UIBoard extends StatefulWidget {
   }
 
   UIBoardState? state;
-
   var backgroundColor = ui.instance.backgroundColor;
   var title = "";
   var isDisplayAppBar = true;
@@ -103,7 +102,6 @@ class UIBoard extends StatefulWidget {
 
   Scaffold? onCreateScaffold() {
     final body = onCreateBody();
-
     return Scaffold(
         backgroundColor: backgroundColor,
         appBar: onCreateAppBar(),
@@ -117,6 +115,10 @@ class UIBoard extends StatefulWidget {
   }
 
   reload() {
+    state?.reload();
+  }
+
+  force() {
     state?.reload();
   }
 

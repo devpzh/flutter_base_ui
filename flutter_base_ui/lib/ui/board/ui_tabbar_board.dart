@@ -8,7 +8,7 @@ class UITabbarBoard extends StatefulWidget {
   List<UIBoard> childrens = [];
   List<BottomNavigationBarItem> tabbarItems = [];
   Color unselectedItemColor = Colors.white;
-  Color selectedItemColor = Hex.init("FFD130");
+  Color selectedItemColor = Colors.blue;
   Color bottomNavigationBarColor = ui.instance.bottomBarColor;
   double unselectedFontSize = 10;
   double selectedFontSize = 10;
@@ -23,7 +23,6 @@ class UITabbarBoard extends StatefulWidget {
 
   Widget? onCreateTabbar() {
     if (tabbarItems.length < 2) return null;
-
     final bottomNavigationBar = BottomNavigationBar(
       elevation: 0,
       backgroundColor: bottomNavigationBarColor,
@@ -44,7 +43,6 @@ class UITabbarBoard extends StatefulWidget {
     return Theme(
         data: ThemeData(
           brightness: Brightness.dark,
-          // canvasColor: Colors.black,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
@@ -54,13 +52,13 @@ class UITabbarBoard extends StatefulWidget {
   Widget onCreateScaffold() {
     return Scaffold(
         body: IndexedStack(
-          children: childrens,
           index: currentIndex,
+          children: childrens,
         ),
         bottomNavigationBar: Container(
           color: bottomNavigationBarColor,
           child: SafeArea(
-            child: Container(
+            child: SizedBox(
               height: Screen.tabBarHeight,
               child: onCreateTabbar(),
             ),

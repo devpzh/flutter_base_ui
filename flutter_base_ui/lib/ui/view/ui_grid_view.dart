@@ -49,8 +49,11 @@ class UIGridView extends StatefulWidget {
     this.crossAxisSpacing = crossAxisSpacing ?? 5;
     this.aspectRatio = aspectRatio ?? 1;
     this.rows = rows ?? [];
+    // ignore: prefer_initializing_formals
     this.refreshController = refreshController;
+    // ignore: prefer_initializing_formals
     this.onRefresh = onRefresh;
+    // ignore: prefer_initializing_formals
     this.onLoading = onLoading;
   }
 
@@ -64,9 +67,10 @@ class UIGridView extends StatefulWidget {
   }
 
   didScroll(double offsety) {
-    if (this.didScrollClosure != null) {
-      this.didScrollClosure!(offsety);
+    if (didScrollClosure == null) {
+      return;
     }
+    didScrollClosure!(offsety);
   }
 
   @override

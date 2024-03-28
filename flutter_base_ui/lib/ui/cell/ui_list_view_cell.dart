@@ -13,11 +13,13 @@ class UIListViewCellModel extends UICellModel {
   var sections = <UIListSection>[];
 
   @override
+  // TODO: implement widget
+  UICell? get widget => UIListViewCell();
+
+  @override
   init() {
     super.init();
-
     sections.add(section);
-    widget = UIListViewCell();
   }
 }
 
