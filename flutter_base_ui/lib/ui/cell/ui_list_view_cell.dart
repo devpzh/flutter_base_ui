@@ -4,7 +4,7 @@ import 'package:flutter_base_ui/ui/const/ui.dart';
 import 'package:flutter_base_ui/ui/view/ui_list_view.dart';
 
 class UIListViewCellModel extends UICellModel {
-  Color backgroundColor = ui.instance.backgroundColor;
+  Color backgroundColor = UI.style.backgroundColor;
   ScrollPhysics? physics;
   Axis scrollDirection = Axis.horizontal;
   EdgeInsets edgeInsets = const EdgeInsets.all(0);

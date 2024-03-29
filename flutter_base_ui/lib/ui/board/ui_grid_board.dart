@@ -18,32 +18,33 @@ class UIGridBoard extends UIBoard {
   @override
   reload() {
     if (gridView?.scrollDirection != scrollDirection) {
-      gridView?.scrollDirection = scrollDirection;
+       gridView?.scrollDirection = scrollDirection;
     }
 
     if (gridView?.edgeInsets != edgeInsets) {
-      gridView?.edgeInsets = edgeInsets;
+       gridView?.edgeInsets = edgeInsets;
     }
 
     if (gridView?.crossAxisCount != crossAxisCount) {
-      gridView?.crossAxisCount = crossAxisCount;
+       gridView?.crossAxisCount = crossAxisCount;
     }
 
     if (gridView?.mainAxisSpacing != mainAxisSpacing) {
-      gridView?.mainAxisSpacing = mainAxisSpacing;
+       gridView?.mainAxisSpacing = mainAxisSpacing;
     }
 
     if (gridView?.crossAxisSpacing != crossAxisSpacing) {
-      gridView?.crossAxisSpacing = crossAxisSpacing;
+       gridView?.crossAxisSpacing = crossAxisSpacing;
     }
 
     if (gridView?.aspectRatio != aspectRatio) {
-      gridView?.aspectRatio = aspectRatio;
+       gridView?.aspectRatio = aspectRatio;
     }
 
     if (gridView?.rows != rows) {
-      gridView?.rows = rows;
+       gridView?.rows = rows;
     }
+    
     gridView?.reload();
   }
 

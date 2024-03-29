@@ -4,7 +4,7 @@ import 'package:flutter_base_ui/ui/const/ui.dart';
 import 'package:flutter_base_ui/ui/view/ui_grid_view.dart';
 
 class UIGridViewCellModel extends UICellModel {
-  Color backgroundColor = ui.instance.backgroundColor;
+  Color backgroundColor = UI.style.backgroundColor;
   SliverGridDelegate? gridDelegate;
   ScrollPhysics? physics; //= const NeverScrollableScrollPhysics();
   Axis scrollDirection = Axis.horizontal;
@@ -28,7 +28,7 @@ class UIGridViewCellModel extends UICellModel {
     }
 
     double height = edgeInsets.top + edgeInsets.bottom;
-    double colWidth = (Screen.width -
+    double colWidth = (UI.screen.width -
             edgeInsets.left -
             edgeInsets.right -
             (crossAxisCount > 1

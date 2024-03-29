@@ -8,16 +8,16 @@ class UIBoard extends StatefulWidget {
   }
 
   UIBoardState? state;
-  var backgroundColor = ui.instance.backgroundColor;
+  var backgroundColor = UI.style.backgroundColor;
   var title = "";
   var isDisplayAppBar = true;
-  var naviBarBackgroundColor = ui.instance.naviBarBackgroundColor;
-  var naviBarTitleStyle = ui.instance.naviBarTitleStyle;
-  var tintColor = ui.instance.tintColor;
-  var elevation = ui.instance.naviBarElevation;
-  double leadingWidth = ui.instance.leadingWidth;
-  double naviBarLeftPadding = ui.instance.naviBarLeftPadding;
-  double naviBarRightPadding = ui.instance.naviBarRightPadding;
+  var naviBarBackgroundColor = UI.style.naviBarBackgroundColor;
+  var naviBarTitleStyle = UI.style.naviBarTitleStyle;
+  var tintColor = UI.style.tintColor;
+  var elevation = UI.style.naviBarElevation;
+  double leadingWidth = UI.style.leadingWidth;
+  double naviBarLeftPadding = UI.style.naviBarLeftPadding;
+  double naviBarRightPadding = UI.style.naviBarRightPadding;
 
   onCreate() {}
   onStateCreate() {}
@@ -64,7 +64,7 @@ class UIBoard extends StatefulWidget {
   }
 
   Widget? onCreateBarLeft() {
-    return ui.instance.backIcon;
+    return UI.style.back;
   }
 
   List<Widget>? _onCreateBarRightItem() {

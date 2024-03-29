@@ -12,7 +12,7 @@ class UICellModel {
   // 针对GridView，cellHeight和cellWidth无效，需要设置GridView宽高比(aspectRatio)。
   double cellHeight = 0;
   double cellWidth = 0;
-  UICell? widget;
+  UICell? get widget => null;
   Object? delegate;
 
   UICellModel() {

@@ -9,13 +9,26 @@ typedef IntClosure = Function(int?);
 typedef AnyClosure<T> = Function(T?);
 
 // ignore: camel_case_types
-class ui {
-  static final ui instance = ui._instance();
-  factory ui() {
+// ignore: camel_case_types
+class UI {
+  static final UI instance = UI._instance();
+  factory UI() {
     return instance;
   }
-  ui._instance();
-  Image? backIcon;
+  UI._instance();
+  static GlobalKey<NavigatorState>? navigatorKey = GlobalKey();
+  static BuildContext? context;
+  // ignore: library_private_types_in_public_api
+  static _Style style = _Style();
+  // ignore: library_private_types_in_public_api
+  static _Screen screen = _Screen();
+  static launchOf(BuildContext context) {
+    UI.context = context;
+  }
+}
+
+class _Style {
+  Image? back;
   var tintColor = Colors.black;
   var backgroundColor = Colors.white;
   var naviBarBackgroundColor = Colors.white;
@@ -28,27 +41,41 @@ class ui {
   var naviBarRightPadding = 15.0;
 }
 
-extension Screen on double {
-  static double get dpr => window.devicePixelRatio;
-  static double get width => window.physicalSize.width / dpr;
-  static double get height => window.physicalSize.height / dpr;
-  static double get statusBarHeight => window.padding.top / dpr;
-  static double get bottomSafeBarHeight => window.padding.bottom / dpr;
-  static double get tabBarHeight =>
-      (defaultTargetPlatform == TargetPlatform.android)
-          ? kBottomNavigationBarHeight
-          : 50;
+class _Screen {
+  double get dpr => (UI.context != null)
+      ? View.of(UI.context!).devicePixelRatio
+      : window.devicePixelRatio;
+  double get width => (UI.context != null)
+      ? View.of(UI.context!).physicalSize.width / dpr
+      : window.physicalSize.width / dpr;
+  double get height => (UI.context != null)
+      ? View.of(UI.context!).physicalSize.height / dpr
+      : window.physicalSize.height / dpr;
+  double get statusBarHeight => (UI.context != null)
+      ? View.of(UI.context!).padding.top / dpr
+      : window.padding.top / dpr;
+  double get bottomSafeBarHeight => (UI.context != null)
+      ? View.of(UI.context!).padding.bottom / dpr
+      : window.padding.bottom / dpr;
+  double get tabBarHeight => (defaultTargetPlatform == TargetPlatform.android)
+      ? kBottomNavigationBarHeight
+      : 50;
 
   static double scaleWidth(double width, double scaleW) {
-    return width * Screen.width / scaleW;
+    return width * UI.screen.width / scaleW;
   }
 
   static double scaleHeight(double height, double scaleH) {
-    return height * Screen.height / scaleH;
+    return height * UI.screen.height / scaleH;
   }
+}
 
-  double get scaleW => Screen.scaleWidth(this, 375);
-  double get scaleH => Screen.scaleHeight(this, 812);
+extension on double {
+  // ignore: unused_element
+  double get scaleW => _Screen.scaleWidth(this, 375);
+  // ignore: unused_element
+  double get scaleH => _Screen.scaleHeight(this, 812);
+  // ignore: unused_element
   double onScaleH(double width, double scaleW) {
     if (width == 0) {
       return 0;
@@ -58,7 +85,6 @@ extension Screen on double {
 }
 
 extension Hex on Color {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
   static Color init(String hexString) {
     final buffer = StringBuffer();
     if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
@@ -66,7 +92,6 @@ extension Hex on Color {
     return Color(int.parse(buffer.toString(), radix: 16));
   }
 
-  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
       '${alpha.toRadixString(16).padLeft(2, '0')}'
       '${red.toRadixString(16).padLeft(2, '0')}'

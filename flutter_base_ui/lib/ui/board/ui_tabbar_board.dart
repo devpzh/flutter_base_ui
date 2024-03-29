@@ -9,7 +9,7 @@ class UITabbarBoard extends StatefulWidget {
   List<BottomNavigationBarItem> tabbarItems = [];
   Color unselectedItemColor = Colors.white;
   Color selectedItemColor = Colors.blue;
-  Color bottomNavigationBarColor = ui.instance.bottomBarColor;
+  Color bottomNavigationBarColor = UI.style.bottomBarColor;
   double unselectedFontSize = 10;
   double selectedFontSize = 10;
   int currentIndex = 0;
@@ -59,7 +59,7 @@ class UITabbarBoard extends StatefulWidget {
           color: bottomNavigationBarColor,
           child: SafeArea(
             child: SizedBox(
-              height: Screen.tabBarHeight,
+              height: UI.screen.tabBarHeight,
               child: onCreateTabbar(),
             ),
           ),
