@@ -56,7 +56,8 @@ class UIBoard extends StatefulWidget {
     return InkWell(
       onTap: onLeftTouch,
       child: Container(
-        padding: EdgeInsets.only(left: naviBarLeftPadding),
+        padding: EdgeInsets.only(
+            left: naviBarLeftPadding, right: naviBarLeftPadding),
         alignment: Alignment.centerLeft,
         child: left,
       ),
@@ -76,7 +77,8 @@ class UIBoard extends StatefulWidget {
       InkWell(
         onTap: onRightTouch,
         child: Container(
-          margin: EdgeInsets.only(right: naviBarRightPadding),
+          margin: EdgeInsets.only(
+              left: naviBarRightPadding, right: naviBarRightPadding),
           alignment: Alignment.center,
           child: right,
         ),

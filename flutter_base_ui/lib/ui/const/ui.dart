@@ -37,7 +37,7 @@ class _Style {
       color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
   var naviBarElevation = 0.0;
   var leadingWidth = 44.0;
-  var naviBarLeftPadding = 20.0;
+  var naviBarLeftPadding = 15.0;
   var naviBarRightPadding = 15.0;
 }
 

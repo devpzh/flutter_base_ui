@@ -14,7 +14,6 @@ class UICellModel {
   double cellWidth = 0;
   UICell? get widget => null;
   Object? delegate;
-
   UICellModel() {
     init();
   }
