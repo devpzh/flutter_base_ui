@@ -58,7 +58,7 @@ class UIBoard extends StatefulWidget {
       child: Container(
         padding: EdgeInsets.only(
             left: naviBarLeftPadding, right: naviBarLeftPadding),
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.center,
         child: left,
       ),
     );

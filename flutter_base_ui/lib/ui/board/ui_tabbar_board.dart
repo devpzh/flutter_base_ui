@@ -13,6 +13,7 @@ class UITabbarBoard extends StatefulWidget {
   double unselectedFontSize = 10;
   double selectedFontSize = 10;
   int currentIndex = 0;
+  double elevation = 0.0;
   BottomNavigationBarType tabbarType = BottomNavigationBarType.fixed;
 
   UITabbarBoard({Key? key}) : super(key: key) {
@@ -20,11 +21,20 @@ class UITabbarBoard extends StatefulWidget {
   }
 
   onCreate() {}
+  onStateToggled() {}
+
+  toggleState(UITabbarBoardState? state) {
+    if (this.state == state) return;
+    this.state = state;
+    onStateToggled();
+  }
 
   Widget? onCreateTabbar() {
-    if (tabbarItems.length < 2) return null;
+    if (tabbarItems.isEmpty == true) {
+      return null;
+    }
     final bottomNavigationBar = BottomNavigationBar(
-      elevation: 0,
+      elevation: elevation,
       backgroundColor: bottomNavigationBarColor,
       items: tabbarItems,
       unselectedItemColor: unselectedItemColor,
@@ -40,13 +50,7 @@ class UITabbarBoard extends StatefulWidget {
       },
     );
 
-    return Theme(
-        data: ThemeData(
-          brightness: Brightness.dark,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        ),
-        child: bottomNavigationBar);
+    return bottomNavigationBar;
   }
 
   Widget onCreateScaffold() {
@@ -55,15 +59,7 @@ class UITabbarBoard extends StatefulWidget {
           index: currentIndex,
           children: childrens,
         ),
-        bottomNavigationBar: Container(
-          color: bottomNavigationBarColor,
-          child: SafeArea(
-            child: SizedBox(
-              height: UI.screen.tabBarHeight,
-              child: onCreateTabbar(),
-            ),
-          ),
-        ));
+        bottomNavigationBar: onCreateTabbar());
   }
 
   curIndexChanged() {}
@@ -74,16 +70,15 @@ class UITabbarBoard extends StatefulWidget {
   }
 
   @override
-  // ignore: no_logic_in_create_state
   State<StatefulWidget> createState() {
-    state = UITabbarBoardState();
-    return state!;
+    return UITabbarBoardState();
   }
 }
 
 class UITabbarBoardState extends State<UITabbarBoard> {
   @override
   Widget build(BuildContext context) {
+    widget.toggleState(this);
     return widget.onCreateScaffold();
   }
 }
